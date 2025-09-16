@@ -44,9 +44,10 @@ export default function ToDo() {
     }
 
     return (
-        <div className='flex items-center w-full md:w-2/4 justify-center flex-col md:flex-row p-20 md:rounded-2xl shadow-lg dark:bg-primary bg-pinky text-base-text dark:secondary-text'>
+        <div
+            className='flex items-center w-full md:w-2/4 justify-center flex-col md:flex-row p-20 md:rounded-2xl shadow-lg dark:bg-primary bg-pinky text-base-text dark:secondary-text'>
             <div className='m-1 flex items-center justify-center gap'>
-                <ul className='m-2 flex flex-col items-center justify-center' >
+                <ul className='m-2 flex flex-col items-center justify-center'>
                     {tasks.map((task, i) => (
                         <li key={i} data-id={task.i} data-status={task.status} data-text={task.text}>{task.text}
                             <ButtonDefault onClick={handleRemoveTask}>del</ButtonDefault>
@@ -55,7 +56,7 @@ export default function ToDo() {
                     ))}
                 </ul>
             </div>
-            <div className='w-1/2 flex items-center justify-center' >
+            <div className='w-1/2 flex items-center justify-center'>
                 <ButtonDefault onClick={handleAddTaskForm}>Add task</ButtonDefault>
             </div>
 

@@ -1,15 +1,18 @@
 import './App.css'
-import ToDo from "./features/to-do/ToDo.jsx";
 import {BrowserRouter, Link, Route, Routes} from 'react-router'
-import {NotFound} from "./components/NotFound.jsx";
-import {useState} from "react";
+import {useState, lazy, Suspense} from "react";
+import Loading from "./components/Loading.jsx";
+
 
 function App() {
     const [selectedBox, setSelected] = useState('');
-
     const handleNavLink = (text) => {
         setSelected(text);
     };
+
+    const ToDo = lazy(()=> import("./features/to-do/ToDo.jsx"));
+    const UISandbox = lazy(() => import("./features/UI-Sandbox/UISandbox.jsx"));
+    const NotFound = lazy(() => import("./components/NotFound.jsx"));
 
     return (
         <BrowserRouter>
@@ -46,10 +49,14 @@ function App() {
 
             <div className="flex justify-center items-center gap-5 flex-col mt-5">
                 <h1 className='text-2xl text-dark-primary'>Sandbox {selectedBox}</h1>
-                <Routes>
-                    <Route path="/todo" element={<ToDo/>}/>
-                    <Route path="*" element={<NotFound/>}/>
-                </Routes>
+                <Suspense fallback={<Loading />}>
+                    <Routes>
+                        <Route path="/todo" element={<ToDo/>}/>
+                        <Route path='/ui-sandbox' element={<UISandbox/>}/>
+                        <Route path="*" element={<NotFound/>}/>
+                    </Routes>
+                </Suspense>
+
             </div>
 
         </BrowserRouter>
