@@ -9,7 +9,7 @@ function App() {
 
     const handleNavLink = (text) => {
         setSelected(text);
-    }
+    };
 
     return (
         <BrowserRouter>
@@ -20,25 +20,25 @@ function App() {
                     <Link to="/todo"
                           onClick={(e) => handleNavLink(e.target.textContent)}
                           className={`transition-all duration-300 ease-in-out transform 
-                          ${selectedBox === 'Список задач' ? 'text-3xl': ''}`}>
+                          ${selectedBox === 'Список задач' ? 'text-3xl' : ''}`}>
                         Список задач
                     </Link>
                     <Link to="/calculator"
                           onClick={(e) => handleNavLink(e.target.textContent)}
                           className={`transition-all duration-300 ease-in-out transform 
-                          ${selectedBox === 'Калькулятор' ? 'text-3xl': ''}`}>
+                          ${selectedBox === 'Калькулятор' ? 'text-3xl' : ''}`}>
                         Калькулятор
                     </Link>
                     <Link to="/galery"
                           onClick={(e) => handleNavLink(e.target.textContent)}
                           className={`transition-all duration-300 ease-in-out transform 
-                          ${selectedBox === 'Галерея' ? 'text-3xl': ''}`}>
+                          ${selectedBox === 'Галерея' ? 'text-3xl' : ''}`}>
                         Галерея
                     </Link>
                     <Link to="/ui-sandbox"
                           onClick={(e) => handleNavLink(e.target.textContent)}
                           className={`transition-all duration-300 ease-in-out transform 
-                          ${selectedBox === 'UI песочница' ? 'text-3xl': ''}`}>
+                          ${selectedBox === 'UI песочница' ? 'text-3xl' : ''}`}>
                         UI песочница
                     </Link>
                 </div>

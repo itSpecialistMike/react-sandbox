@@ -3,8 +3,11 @@ import Modalka from "./Modalka.jsx";
 import AddTaskForm from "./forms/AddTaskForm.jsx";
 import UpdTaskForm from "./forms/UpdTaskForm.jsx";
 import {ButtonDefault} from "../../components/ButtonDefault.jsx";
+import {useLocation} from "react-router";
 
 export default function ToDo() {
+    const location = useLocation();
+    console.log(location.pathname)
     const [tasks, setTasks] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [modalChildren, setModalChildren] = useState()
