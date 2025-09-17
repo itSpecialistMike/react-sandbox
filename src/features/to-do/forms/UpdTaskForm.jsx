@@ -1,10 +1,14 @@
 import {useState} from "react";
 import {InputDefault} from "../../../components/InputDefault.jsx";
 import {ButtonDefault} from "../../../components/ButtonDefault.jsx";
+import {useDispatch} from "react-redux";
+import {updateTodo} from "../todoSlice.js";
 
-export default function UpdTaskForm({tasks, setTasks, task,setIsOpen}) {
+
+export default function UpdTaskForm({task, setIsOpen}) {
     const [formText, setFormText] = useState(task.text)
     const [empty, setEmpty] = useState(true)
+    const dispatch = useDispatch();
 
 
     const validation = (textData) => {
@@ -23,8 +27,7 @@ export default function UpdTaskForm({tasks, setTasks, task,setIsOpen}) {
         e.preventDefault()
         validation(formText)
         const updatedTask = {...task, text: formText};
-        const newTasks = tasks.map((t) => (t.i === task.i ? updatedTask : t))
-        setTasks(newTasks);
+        dispatch(updateTodo(updatedTask));
         setIsOpen(false);
     }
 
