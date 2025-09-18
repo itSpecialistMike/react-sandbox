@@ -28,10 +28,11 @@ function App() {
                     <header
                         className="flex justify-center items-center">
                         <div
-                            className="w-full h-50 flex flex-col md:flex-row justify-center items-center gap-4 lg:gap-40 shadow-lg">
+                            className="w-full md:h-50 flex
+                            flex-col md:flex-row justify-center items-center gap-4 lg:gap-40 shadow-lg p-20">
                             <Link to="/todo"
                                   onClick={(e) => handleNavLink(e.target.textContent)}
-                                  className={`transition-all duration-300 ease-in-out transform 
+                                  className={`transition-all duration-300 ease-in-out transform
                           ${selectedBox === 'Список задач' ? 'text-3xl' : ''}`}>
                                 Список задач
                             </Link>
@@ -53,7 +54,7 @@ function App() {
                           ${selectedBox === 'UI песочница' ? 'text-3xl' : ''}`}>
                                 UI песочница
                             </Link>
-                            <ThemeToggle />
+                            <ThemeToggle/>
                         </div>
                     </header>
 

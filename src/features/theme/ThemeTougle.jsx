@@ -10,7 +10,6 @@ export const ThemeToggle = () => {
 
     const handleDark = () => {
         dispatch(toggleTheme('dark'));
-        console.log(theme);
     }
 
     useEffect(() => {

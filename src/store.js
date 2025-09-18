@@ -16,12 +16,18 @@ const themePersistConfig = {
     storage,
 }
 
+const counterPersistConfig = {
+    key: 'counter',
+    storage,
+}
+
 const persistedTodoReducer = persistReducer(todoPersistConfig, todoReducer);
 const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
+const persistedCounterReducer = persistReducer(counterPersistConfig, counterReducer);
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        counter: persistedCounterReducer,
         todo: persistedTodoReducer,
         theme: persistedThemeReducer
     }
