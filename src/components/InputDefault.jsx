@@ -1,7 +1,8 @@
 export function InputDefault({onChange, value, type}) {
     return (
         <input
-            className='p-2 shadow rounded-xl bg-dark-primary text-base-text'
+            placeholder="Введите че хотите"
+            className='p-2 shadow-xl rounded-xl dark:bg-base-text bg-base-text'
             value={value} onChange={onChange} type={type}
         />
     )

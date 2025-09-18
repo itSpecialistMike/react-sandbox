@@ -1,6 +1,31 @@
 @import "tailwindcss";
 
+/* говорим Tailwind использовать переменные как цвета */
 @theme {
+    --color-primary: var(--color-primary);
+    --color-primary-200: var(--color-primary-200);
+    --color-primary-400: var(--color-primary-400);
+    --color-primary-600: var(--color-primary-600);
+    --color-primary-800: var(--color-primary-800);
+    --color-secondary: var(--color-secondary);
+    --color-accent: var(--color-accent);
+    --color-dark-primary: var(--color-dark-primary);
+    --color-base-text: var(--color-base-text);
+    --color-secondary-text: var(--color-secondary-text);
+    --color-light-primary: var(--color-light-primary);
+    --color-divider: var(--color-divider);
+    --color-blue-light: var(--color-blue-light);
+    --color-yellow: var(--color-yellow);
+    --color-cream: var(--color-cream);
+    --color-pinky: var(--color-pinky);
+    --color-mate: var(--color-mate);
+}
+
+/* Создаем кастомную вариацию для data-theme */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Базовые цвета для светлой темы */
+:root, [data-theme=light] {
     --color-primary: #673AB7;
     --color-primary-200: #FABFFF;
     --color-primary-400: #D49CFF;
@@ -18,5 +43,33 @@
     --color-cream: #E8D5B5;
     --color-pinky: #FDF7FF;
     --color-mate: #9C89B3;
+}
 
+/* Цвета для темной темы */
+[data-theme=dark] {
+    --color-primary: #512DA8;
+    --color-primary-200: #8B5ADB;
+    --color-primary-400: #AF7AFF;
+    --color-primary-600: #D49CFF;
+    --color-primary-800: #FABFFF;
+    --color-secondary: #FF4C7C;
+    --color-accent: #CA2E9F;
+    --color-base-text: #212121;
+    --color-secondary-text: #FFFFFF;
+    --color-pinky: #1A1A1A;
+}
+
+/* Общие стили */
+body {
+    background-color: var(--color-pinky);
+    color: var(--color-secondary-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme=dark] {
+    color-scheme: dark;
+}
+
+[data-theme=light] {
+    color-scheme: light;
 }

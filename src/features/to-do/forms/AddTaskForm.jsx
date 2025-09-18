@@ -32,8 +32,9 @@ export default function AddTaskForm({setIsOpen}) {
     };
 
 
-    return (<div>
-            <form className='m-1 flex flex-col justify-center gap-1 mb-4'>
+    return (
+        <div>
+            <form className='m-1 flex flex-col justify-center gap-1 mb-4 '>
                 <InputDefault
                     onChange={handleAddText}
                     value={formText}

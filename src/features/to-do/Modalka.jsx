@@ -7,7 +7,7 @@ export default function Modalka({isOpen, onClose, children}) {
                 isOpen={isOpen}
                 onRequestClose={onClose}
                 overlayClassName='fixed inset-0 flex items-center justify-center'
-                className='rounded-lg shadow-2xl max-w-md w-full bg-primary'
+                className='rounded-lg shadow-2xl max-w-md w-full bg-pinky dark:bg-pinky'
                 style={{overlay: {background: "rgba(0,0,0,0.25)"}}}
             >
                 <div onClick={(e)=> {e.stopPropagation()}}>

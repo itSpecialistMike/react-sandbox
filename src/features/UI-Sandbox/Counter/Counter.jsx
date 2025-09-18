@@ -7,11 +7,11 @@ export default function Counter() {
     const dispatch = useDispatch();
 
     return (
-        <div className='rounded-2xl bg-primary p-2 w-full'>
+        <div className='rounded-2xl p-2 w-full'>
             <h1>
                 Счетчик
             </h1>
-            <div className='p-20 flex items-center justify-center text-base w-full'>
+            <div className='flex items-center justify-center text-base w-full'>
                 <ButtonDefault onClick={() => dispatch(increment())}>+</ButtonDefault>
                 <div className='text-center w-10'>{count}</div>
                 <ButtonDefault onClick={() => dispatch(decrement())}>-</ButtonDefault>

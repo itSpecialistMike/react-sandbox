@@ -10,7 +10,7 @@ import TaskCard from "./components/TaskCard.jsx";
 export default function ToDo() {
     const [isOpen, setIsOpen] = useState(false)
     const [modalChildren, setModalChildren] = useState()
-    const todos = useSelector(state => state.todo.todos)
+    const todo = useSelector(state => state.todo.value);
     const dispatch = useDispatch();
 
     const handleRemoveTask = (task) => {
@@ -19,7 +19,7 @@ export default function ToDo() {
 
     const handleAddTaskForm = () => {
         setModalChildren(<AddTaskForm
-            tasks={todos}
+            tasks={todo}
             setIsOpen={setIsOpen}/>)
         setIsOpen(true)
     }
@@ -33,15 +33,14 @@ export default function ToDo() {
 
     return (
         <div
-            className='flex items-center w-full md:w-2/4 justify-center flex-col md:flex-row p-20 md:rounded-2xl shadow-lg dark:bg-primary bg-pinky text-base-text dark:secondary-text'>
+            className='flex items-center w-full md:w-2/4 justify-center flex-col md:flex-row p-20 md:rounded-2xl shadow-lg'>
             <div className='m-1 flex items-center justify-center gap'>
                 <div className='m-2 flex flex-col items-center justify-center'>
-                    {todos.map((task, id) => (
-                        <TaskCard key={id} task={task} handleRemoveTask={handleRemoveTask}
-                                  handleUpdTaskForm={handleUpdTaskForm}>
+                    {todo.map((task, id) => (
+                        <TaskCard key={id} task={task} handleRemoveTask={handleRemoveTask} handleUpdTaskForm={handleUpdTaskForm}>
                             <div className="flex flex-col items-center justify-center gap-2 text-center">
-                                <h1 className='text-xl text-base-text'> {task.text}</h1>
-                                <p className='text-3xl text-accent '>{task.status}</p>
+                                <h1 className='text-xl'> {task.text}</h1>
+                                <p className='text-3xl'>{task.status}</p>
                             </div>
 
                         </TaskCard>
